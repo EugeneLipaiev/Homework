@@ -1,0 +1,23 @@
+import random
+
+
+class FloatCastingError(ValueError):
+    pass
+
+def to_float(string):
+    try:
+        return float(string)
+    except ValueError:
+        raise FloatCastingError(f"Invalid value: {string}")
+
+if __name__ == '__main__':
+    value = to_float("1.0")
+    print(value)
+    print(type(value))
+
+    assert to_float("1.0") == 1.0
+    print(to_float("1.0") == 0.5)
+    assert True
+
+channels=["BBC", "Discovery", "TV1000"]
+print(random.choice(channels))

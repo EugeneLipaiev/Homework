@@ -1,0 +1,33 @@
+from nadezhda import to_float, FloatCastingError
+
+
+# Task2
+
+def read_float(promt):
+    while True:
+        val = input(promt)
+        try:
+            return to_float(val)
+        except FloatCastingError as e:
+            print(str(e))
+
+
+def fedor():
+    a = read_float("Insert A value: ")
+    b = read_float(">>>")
+
+    try:
+        print(f" {a ** 2} / {b} = {(a ** 2) / b}")
+    except ArithmeticError as e:
+        print(f"Error: {e}")
+    finally:
+        print("\nCalculation completed successfully")
+
+
+if __name__ == '__main__':
+    try:
+        fedor()
+    except KeyboardInterrupt:
+        print("\n!!! Interrupted")
+    finally:
+        print("goodbye")
